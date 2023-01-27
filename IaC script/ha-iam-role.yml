@@ -1,0 +1,48 @@
+Description: > 
+    Set up a read only iam role from the private servers to the s3 bucket with sample html webpage.
+
+Resources:
+    ServerRole:
+        Type: AWS::IAM::Role 
+        Properties:
+            AssumeRolePolicyDocument:
+                Version: "2012-10-17"
+                Statement:
+                    - Effect: Allow
+                      Principal:
+                          Service:
+                              - ec2.amazonaws.com
+                      Action:
+                          - sts:AssumeRole
+            Path: "/"
+    ServerPolicy:
+        Type: AWS::IAM::Policy
+        Properties: 
+            PolicyName: S3ReadOnlyAccess
+            PolicyDocument: 
+                Statement:
+                    - Effect: Allow
+                      Action: 
+                          - s3:Get*
+                          - s3:List*
+                      Resource: 
+                          - arn:aws:s3:::myudacityhighavail1994
+                          - arn:aws:s3:::myudacityhighavail1994/*
+            Roles: 
+                - !Ref ServerRole
+    ServerProfile:
+        Type: AWS::IAM::InstanceProfile
+        Properties:
+            Path: "/" 
+            Roles:
+                - !Ref ServerRole
+
+Outputs:
+    ServerProfile:
+        Description: A reference to the instance profile
+        Value: !Ref ServerProfile
+        Export:
+            Name: ReadProfileInstance 
+
+
+            
