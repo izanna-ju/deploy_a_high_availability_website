@@ -1,0 +1,10 @@
+[
+    {
+        "ParameterKey": "EnvironmentName",
+        "ParameterValue": "HAWebsiteProject"
+    },
+    {
+        "ParameterKey": "InstanceTypeParameter",
+        "ParameterValue": "t2.medium"
+    }
+]
