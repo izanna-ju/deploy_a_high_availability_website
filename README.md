@@ -43,7 +43,7 @@ As your final project, you'll be faced with a real scenario.
 
 #### Cloud Architecture
 
-![image](files://C:/Users/IZANNA/Desktop/DevOps/udacity-cloud-devops-project/Deploy-a-high-availability-website/High availabilty web application architecture.png)
+![Cloud Infrastructure Architecture](https://github.com/izanna-ju/deploy_a_high_availability_website/blob/master/High%20availabilty%20web%20application%20architecture.png?raw=true "Cloud Infrastructure Architecture")
 
 #### YAML Scripts
 A networking infrastructure containing a VPC, a load balancer, security groups and two public and private subnets. Two instances was evenly placed on both private subnets and the instances was connected to a load balancer that helps to distribute traffic across the servers and keep the application up. Internet is provided to the private servers through a route table that connects to NAT gateways in the public subnets.
